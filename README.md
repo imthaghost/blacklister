@@ -14,7 +14,7 @@
 ## Examples
 
 A simple example that demonstrates most of the features: ::
-
+```python
 	from radix import radix
 
 	# Create a new tree
@@ -90,7 +90,7 @@ A simple example that demonstrates most of the features: ::
 	# is permitted.
 	for rnode in rtree:
   		print rnode.prefix
-
+```
 ## 📝 License
 
 By contributing, you agree that your contributions will be licensed under its MIT License.
