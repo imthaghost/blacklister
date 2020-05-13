@@ -1,5 +1,5 @@
 <p align="center">
- Simply use a radix tree to blacklist ip addresse 
+ Simply use a radix tree to blacklist ip addresses 
 </p>
 <!-- <p align="center">
    <a href="https://goreportcard.com/report/github.com/imthaghost/goclone"><img src="https://goreportcard.com/badge/github.com/imthaghost/goclone"></a>
@@ -13,7 +13,6 @@
 
 ## Examples
 
-A simple example that demonstrates most of the features: ::
 ```python
 	from radix import radix
 
