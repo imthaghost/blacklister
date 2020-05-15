@@ -3,8 +3,8 @@ from radix import radix
 
 # blacklist
 blacklist = radix.Radix()
-# generate 10000 thousand ip addresses
-for i in range(100000):
+# generate ip addresses
+for i in range(1000000):
     # ip4 ips shoutout to Ben and Omar for this code :)
     ip = "{}.{}.{}.{}".format(randint(0,255), randint(0,255), randint(0,255), randint(0,255))
     node = blacklist.add(ip)

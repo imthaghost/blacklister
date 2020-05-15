@@ -1,7 +1,32 @@
 from socket import (getaddrinfo, gaierror,
                     inet_pton, inet_ntop, AF_INET, AF_INET6, SOCK_RAW,
                     AI_NUMERICHOST)
+import time
 
+
+def time_it(func):
+    """
+    """
+    def wrapper(*args, **kwargs):
+        """Returns random words from a file 
+        Parameters
+        ----------
+        path : str, OSX words list by default
+            The path of the words file
+        num : int, at least 1 word by default
+            The number of words we want to return
+        Raises
+        ------
+        TypeError
+            If no no or 1 parameter was given...requires two keyword parameters path and ammount
+        """
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(func.__name__ + " took " + str((end - start) * 1000) + " ms")
+        return result
+
+    return wrapper
 
 class RadixPrefix(object):
     family = None
@@ -110,7 +135,7 @@ class RadixTree(object):
         left = addr[bitlen >> 3]
         right = 0x80 >> (bitlen & 0x07)
         return left & right
-
+    @time_it
     def add(self, prefix):
         if self.head is None:
             # easy case
@@ -250,7 +275,7 @@ class RadixTree(object):
         else:
             parent.left = child
         return
-
+    @time_it
     def search_best(self, prefix):
         if self.head is None:
             return None
@@ -277,7 +302,7 @@ class RadixTree(object):
                     node.bitlen <= bitlen):
                 return node
         return None
-
+    @time_it
     def search_exact(self, prefix):
         if self.head is None:
             return None
